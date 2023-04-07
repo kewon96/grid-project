@@ -1,5 +1,6 @@
 <template>
   <div class="kw-grid">
+<!--      <KwGridHeader />-->
     <KwRow v-for="data in list" :data="data"></KwRow>
   </div>
 </template>
