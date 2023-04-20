@@ -1,13 +1,13 @@
 <template>
   <div class="kw-grid">
 <!--      <KwGridHeader />-->
-    <KwRow v-for="data in list" :data="data"></KwRow>
+    <KwRow v-for="(data, index) in list" :data="data" :index="index"></KwRow>
   </div>
 </template>
 
 <script setup lang="ts">
 import KwRow from "@/components/KwRow.vue";
-import type {GridData} from "@/types";
+import type {GridData, KwGrid} from "@/types";
 
 
 /*********** Type & Interface **************/
@@ -16,8 +16,9 @@ import type {GridData} from "@/types";
 /*********** Reactive Instance **************/
 
 const props = defineProps<{
-  list: Array<GridData>
-}>()
+    list: Array<GridData>,
+    grid: KwGrid,
+}>();
 
 
 /*********** Normal Instance **************/

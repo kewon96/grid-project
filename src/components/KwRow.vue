@@ -1,10 +1,12 @@
 <template>
   <div class="kw-row">
+    <KwNum>{{index + 1}}</KwNum>
     <KwCell v-for="entryData in Object.entries(data)"></KwCell>
   </div>
 </template>
 
 <script setup lang="ts">
+import KwNum from "@/components/KwNum.vue";
 import KwCell from "@/components/KwCell.vue";
 import type {GridData} from "@/types";
 
@@ -18,6 +20,7 @@ import type {GridData} from "@/types";
 
 const props = defineProps<{
   data: GridData
+    index: number
 }>()
 
 /*********** Hook **************/

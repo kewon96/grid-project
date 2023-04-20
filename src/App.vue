@@ -1,14 +1,15 @@
 <template>
 <!--  <KwGrid :grid="grid" />-->
-    <KwGrid :list="list"></KwGrid>
+    <KwGrid :list="list" :grid="grid"></KwGrid>
 </template>
 
 <script setup lang="ts">
 import KwGrid from "@/components/KwGrid.vue";
 import {useGridStore} from "@/composables/useGrid";
 import list from '@/assets/data'
+import {storeToRefs} from "pinia";
 
-const columns = [
+const columnsList = [
     {
         binding: 'empNo',
         header: '번호'
@@ -34,6 +35,9 @@ const columns = [
         header: '이메일'
     },
 ]
-const grid = useGridStore(list, columns, {})
+const grid = useGridStore(list, columnsList, {})();
+const { data, columns } = storeToRefs(grid);
+
+console.log(data, columns)
 
 </script>

@@ -1,3 +1,5 @@
+import type {Ref} from "vue";
+
 export type GridData = {
     regNo?: string
     househldNm?: string
@@ -41,4 +43,10 @@ export type GridData = {
     lofoTp?: string
     rankCd?: string
     tenureTp?: string
+}
+
+export type KwGrid = {
+    listRef: Ref<any[]>,
+    columns: Ref<any[]>,
+
 }
